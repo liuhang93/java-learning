@@ -2,6 +2,7 @@ package finalTest;
 
 /**
  * Created by liuhang on 2016/11/1.
+ * final关键字测试
  */
 /*
 final:最终
