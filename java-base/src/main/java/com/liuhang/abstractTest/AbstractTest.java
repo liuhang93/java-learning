@@ -1,7 +1,8 @@
-package abstractTest;
+package com.liuhang.abstractTest;
 
 /**
  * Created by liuhang on 2016/12/9.
+ * 抽象类
  */
 public class AbstractTest {
     public static void main(String[]args){

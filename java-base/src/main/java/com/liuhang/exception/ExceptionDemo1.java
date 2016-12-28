@@ -1,7 +1,8 @@
-package exception;
+package com.liuhang.exception;
 
 /**
  * Created by liuhang on 2016/11/8.
+ * Java异常机制
  */
 public class ExceptionDemo1 {
     public static void main(String[] args) throws Exception {

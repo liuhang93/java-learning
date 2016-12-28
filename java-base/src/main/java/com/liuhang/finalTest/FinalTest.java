@@ -1,4 +1,4 @@
-package finalTest;
+package com.liuhang.finalTest;
 
 /**
  * Created by liuhang on 2016/11/1.

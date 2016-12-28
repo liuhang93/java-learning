@@ -1,4 +1,4 @@
-package extendsTest;
+package com.liuhang.extendsTest;
 
 /**
  * Created by liuhang on 2016/10/24.

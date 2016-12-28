@@ -1,4 +1,4 @@
-package decorator;
+package com.liuhang.decorator;
 
 /**
  * Created by liuhang on 2016/12/15.

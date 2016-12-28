@@ -1,4 +1,4 @@
-package polymorphic;
+package com.liuhang.polymorphic;
 
 /**
  * Created by liuhang on 2016/11/7.

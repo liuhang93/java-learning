@@ -1,8 +1,8 @@
-package polymorphic;
+package com.liuhang.polymorphic;
 
 /**
  * Created by liuhang on 2016/11/7.
- * polymorphic 概述: 事物存在的多种形态
+ * com.liuhang.polymorphic 概述: 事物存在的多种形态
  * 多态前提: 要有继承关系;要有方法重写;要有父类引用指向子类对象
  */
 public class PolymorphicDemo1 {

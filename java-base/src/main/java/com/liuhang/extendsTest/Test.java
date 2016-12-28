@@ -1,4 +1,4 @@
-package extendsTest;
+package com.liuhang.extendsTest;
 class Student{
     static {
         System.out.println("Student静态代码块");

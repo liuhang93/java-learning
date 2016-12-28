@@ -1,4 +1,4 @@
-package integerTest;
+package com.liuhang.integerTest;
 
 /**
  * Created by liuhang on 2016/12/5.

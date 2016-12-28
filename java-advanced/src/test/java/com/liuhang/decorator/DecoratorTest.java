@@ -1,11 +1,14 @@
-package decorator;
+package com.liuhang.decorator;
+
+import org.junit.Test;
 
 /**
  * Created by liuhang on 2016/12/15.
+ * 设计模式: 装饰模式. http://blog.csdn.net/janice0529/article/details/44160091
  */
-public class Test {
-
-    public static void main(String[] args) {
+public class DecoratorTest {
+    @Test
+    public void decoratorTest() {
         Component component, decoratorA;
 
         component = new ConcreteComponent();
