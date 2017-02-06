@@ -2,7 +2,7 @@ package graph;
 
 /**
  * Created by liuhang on 2017/1/17.
- * KM算法,求二分图最大权匹配,java实现
+ * KM算法,求二分图最大权匹配,指派问题之最大指派,java实现
  */
 
 import java.io.BufferedReader;
@@ -131,6 +131,7 @@ public class KM {
 
     /**
      * @param args 输入文件路径,输入文件中存n*n的cost矩阵,用逗号隔开
+     * KM算法测试,求二分图最大权匹配(指派问题的最大指派)
      */
     public static void main(String[] args) {
         String graphPath = args[0];
