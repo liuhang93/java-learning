@@ -15,6 +15,8 @@ import java.util.List;
 
 public class KM {
     private static final int INF = Integer.MAX_VALUE;
+    private static final int weightMax=100;
+
 
     private static int N; //顶点数
     private static int[][] weight;
@@ -95,6 +97,7 @@ public class KM {
                 result += weight[link[i]][i];
             }
         }
+        result = weightMax * N - result;
         System.out.println("weight sum: " + result);
     }
 
@@ -142,7 +145,7 @@ public class KM {
         for (String line : matrix) {
             String[] contents = line.split(",");
             for (int j = 0; j < contents.length; j++) {
-                weight[i][j] = Integer.parseInt(contents[j]);
+                weight[i][j] = weightMax-Integer.parseInt(contents[j]);
             }
             i++;
         }
