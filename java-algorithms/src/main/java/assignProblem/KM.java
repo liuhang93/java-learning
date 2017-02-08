@@ -1,22 +1,17 @@
-package graph;
+package assignProblem;
 
 /**
  * Created by liuhang on 2017/1/17.
- * KM算法,求二分图最大权匹配,指派问题之最大指派,java实现
+ * KM算法,求二分图最大权匹配,指派问题之最大(最小)指派,java实现
  */
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+
+import util.FileUtil;
 
 public class KM {
     private static final int INF = Integer.MAX_VALUE;
-    private static final int weightMax=100;
-
+    private static final int weightMax = 100;
 
     private static int N; //顶点数
     private static int[][] weight;
@@ -101,51 +96,34 @@ public class KM {
         System.out.println("weight sum: " + result);
     }
 
-    /**
-     * 读取文件并按行输出字符
-     *
-     * @param spec 允许解析的最大行数， spec==null时，解析所有行
-     * @author liuhang
-     */
-    public static String[] read(final String filePath, final Integer spec) {
-        File file = new File(filePath);
-        // 当文件不存在或者不可读时
-        if ((!file.exists()) || (!file.canRead()) || (!file.isFile())) {
-            System.out.println("file [" + filePath + "] is not exist or cannot read!!!");
-            return null;
+    public static void execute(int[][] cost) {
+        N = cost.length;
+        weight = new int[N][N];
+        for (int i = 0; i < cost.length; i++) {
+            weight[i] = Arrays.copyOf(cost[i], cost[i].length);
         }
-
-        List<String> lines = new LinkedList<>();
-
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String str;
-            int index = 0;
-            while (((spec == null) || index++ < spec) && (str = br.readLine()) != null) {
-                lines.add(str);
-            }
-            br.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return lines.toArray(new String[lines.size()]);
+        link = new int[N];
+        lx = new int[N];
+        ly = new int[N];
+        visitx = new boolean[N];
+        visity = new boolean[N];
+        slack = new int[N];
+        KM();
     }
 
     /**
-     * @param args 输入文件路径,输入文件中存n*n的cost矩阵,用逗号隔开
-     * KM算法测试,求二分图最大权匹配(指派问题的最大指派)
+     * @param args 输入文件路径,输入文件中存n*n的cost矩阵,用逗号隔开 KM算法测试,求二分图最大权匹配(指派问题的最大指派)
      */
     public static void main(String[] args) {
         String graphPath = args[0];
-        String[] matrix = read(graphPath, null);
+        String[] matrix = FileUtil.read(graphPath, null);
         int i = 0;
         int n = 100;
         weight = new int[n][n];
         for (String line : matrix) {
             String[] contents = line.split(",");
             for (int j = 0; j < contents.length; j++) {
-                weight[i][j] = weightMax-Integer.parseInt(contents[j]);
+                weight[i][j] = weightMax - Integer.parseInt(contents[j]);
             }
             i++;
         }
