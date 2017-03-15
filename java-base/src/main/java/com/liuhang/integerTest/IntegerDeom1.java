@@ -34,5 +34,8 @@ public class IntegerDeom1 {
         System.out.println(b==c);
         System.out.println(b2==c2);
 
+        Integer d = new Integer(55);
+        Integer f = new Integer(55);
+        System.out.println(d==f);
     }
 }

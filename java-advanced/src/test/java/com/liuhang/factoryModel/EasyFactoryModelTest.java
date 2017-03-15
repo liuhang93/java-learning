@@ -9,7 +9,7 @@ import org.junit.Test;
 public class EasyFactoryModelTest {
     @Test
     public void testEasyFactoryModel() throws Exception {
-        Car car = CarFactory.getCar("Benz");
+        Car car = Driver.getCar("Benz");
         car.drive();
     }
 }

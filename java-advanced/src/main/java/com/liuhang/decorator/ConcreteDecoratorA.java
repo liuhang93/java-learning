@@ -13,7 +13,8 @@ public class ConcreteDecoratorA extends Decorator {
         super.operation();
         addedBehavior();
     }
-    private void addedBehavior(){
+
+    private void addedBehavior() {
         System.out.println("我是具体的装饰类A，我可以增强原有对象方法");
     }
 }
