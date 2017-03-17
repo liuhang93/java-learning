@@ -4,8 +4,19 @@ package com.liuhang.thread;
  * Created by liuhang on 2017/3/13.
  * volatile 关键字
  */
-public class Demo8 extends Thread {
-    private static volatile boolean flag;
+public class Demo8 {
+    public static void main(String[] args) {
+        Generator runnable = new Generator();
+        Thread thread = new Thread(runnable);
+        thread.start();
+        runnable.stop();
+
+    }
+
+}
+
+class Generator implements Runnable {
+    private boolean flag;
 
     @Override
     public void run() {
@@ -14,17 +25,8 @@ public class Demo8 extends Thread {
         }
     }
 
-    public static void main(String[] args) {
-        Demo8 d1 = new Demo8();
-//        Demo8 d2 = new Demo8();
-        d1.start();
-//        d2.start();
-        try {
-            Thread.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+    public void stop() {
         flag = true;
+        System.out.println("快停！！！！！！");
     }
 }

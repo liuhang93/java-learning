@@ -6,28 +6,28 @@ package com.liuhang.thread;
  */
 public class Demo7 {
     public static void main(String[] args) {
-        Timer timer = new Timer();
+        Tom tom = new Tom();
         new Thread() {
             @Override
             public void run() {
                 Thread.currentThread().setName("cat");
-//                timer.add(Thread.currentThread().getName());
-                timer.decrease(Thread.currentThread().getName());
+//                tom.add(Thread.currentThread().getName());
+                tom.decrease(Thread.currentThread().getName());
             }
         }.start();
         new Thread() {
             @Override
             public void run() {
                 Thread.currentThread().setName("pig");
-//                timer.add(Thread.currentThread().getName());
-                timer.decrease(Thread.currentThread().getName());
+//                tom.add(Thread.currentThread().getName());
+                tom.decrease(Thread.currentThread().getName());
             }
         }.start();
     }
 
 }
 
-class Timer {
+class Tom {
     private static int id;
 
     public  /*synchronized*/ void add(String name) {
