@@ -1,4 +1,4 @@
-package interview;
+package interview.alibaba;
 
 import org.junit.Test;
 
