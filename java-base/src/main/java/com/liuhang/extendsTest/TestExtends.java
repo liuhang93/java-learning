@@ -7,6 +7,8 @@ public class TestExtends {
     public static void main(String[] args) {
         Son s1 = new Son(11, "s1");
         Son s2 = new Son(12, "s2");
+        Father f1 = new Son(11, "f1");
+        f1.setName("fu");
         System.out.println(s1.getName() + "-" + s1.getAge());
         System.out.println(s2.getName() + "-" + s2.getAge());
     }
@@ -44,9 +46,9 @@ class Son extends Father {
         super(age, name);
     }
 
-
 }
-class Son2 extends Father{
+
+class Son2 extends Father {
     public Son2(int age, String name) {
         super(age, name);
     }

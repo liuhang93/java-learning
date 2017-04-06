@@ -1,8 +1,5 @@
 package com.liuhang.test;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Created by liuhang on 2017/3/15.
  * 各种用法测试
@@ -19,16 +16,19 @@ public class Test {
 //        doSomething(var2);
 //        System.out.print(var1.intValue());
 //        System.out.print(var1 == var2);
-
-        Set<Integer> set = new HashSet<>();
-        set.add(null);
-        set.add(3);
-        for (Integer integer : set) {
-            System.out.println(integer+"-");
-        }
+//
+//        Set<Integer> set = new HashSet<>();
+//        set.add(null);
+//        set.add(3);
+//        for (Integer integer : set) {
+//            System.out.println(integer+"-");
+//        }
+        short a = 128;
+        byte b = (byte) a;
+        System.out.println(b);
     }
 
-    public static void doSomething(Integer integer) {
-        integer = new Integer(2);
-    }
+//    public static void doSomething(Integer integer) {
+//        integer = new Integer(2);
+//    }
 }

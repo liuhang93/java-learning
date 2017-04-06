@@ -1,52 +1,51 @@
 package offer;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
 
 /**
  * Created by liuhang on 2017/3/18.
  */
+
 public class Solution19 {
     public ArrayList<Integer> printMatrix(int[][] matrix) {
+        int rows = matrix.length;
+        int columns = matrix[0].length;
         ArrayList<Integer> list = new ArrayList<>();
-        int len1 = matrix[0].length;
-        int len2 = matrix.length;
-        int ring = len1 % 2 + len1 / 2;
-        for (int i = 1; i <= ring; i++) {
-
-            addRing(i, matrix, list);
+        int start = 0;
+        while (start * 2 < columns && start * 2 < rows) {
+            printCircle(list, matrix, start, rows, columns);
+            start += 1;
         }
         return list;
     }
 
-    private void addRing(int ring, int[][] matrix, ArrayList<Integer> list) {
-        int len1 = matrix[0].length;
-        int len2 = matrix.length;
-        for (int i = ring - 1; i <= len1 - ring; i++) {
-            list.add(matrix[ring - 1][i]);
+    private void printCircle(ArrayList<Integer> list, int[][] matrix, int start, int rows, int
+            columns) {
+        int endRow = rows - 1 - start;//终止行号
+        int endColumns = columns - 1 - start;//终止列号
+        //打印第一行
+        for (int i = start; i <= endColumns; i++) {
+            list.add(matrix[start][i]);
         }
-        for (int i = ring; i <= len2 - ring; i++) {
-            list.add(matrix[i][len1 - ring]);
-        }
-        for (int i = len1 - ring - 1; i >= ring - 1; i--) {
-            list.add(matrix[len2 - ring][i]);
-        }
-        for (int i = len2 - ring - 1; i >= ring; i--) {
-            list.add(matrix[i][ring - 1]);
-        }
-    }
 
-    @Test
-    public void test() {
-        int[][] matrix = new int[4][];
-        matrix[0] = new int[]{1, 2, 3, 4};
-        matrix[1] = new int[]{5, 6, 7, 8};
-        matrix[2] = new int[]{9, 10, 11, 12};
-        matrix[3] = new int[]{13, 14, 15, 16};
-        ArrayList<Integer> list = printMatrix(matrix);
-        for (int i : list) {
-            System.out.print(i + "-");
+        //打印上到下的那一列
+        if (endRow > start) {
+            for (int i = start + 1; i <= endRow; i++) {
+                list.add(matrix[i][endColumns]);
+            }
         }
+        //打印从右往左的那一行
+        if (endRow > start && endColumns > start) {
+            for (int i = endColumns - 1; i >= start; i--) {
+                list.add(matrix[endRow][i]);
+            }
+        }
+        //打印最后一列，由下到上
+        if (endRow - 1 > start && endColumns > start) {
+            for (int i = endRow - 1; i > start; i--) {
+                list.add(matrix[i][start]);
+            }
+        }
+
     }
 }
