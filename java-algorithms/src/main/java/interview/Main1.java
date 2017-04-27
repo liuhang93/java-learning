@@ -1,7 +1,7 @@
 package interview;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -9,48 +9,31 @@ import java.util.Scanner;
  */
 public class Main1 {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int m = in.nextInt();
-        String[] str1 = new String[n];
-        String[] str2 = new String[m];
-//        String cat = in.nextLine();
-        for (int i = 0; i < n; i++) {
-            str1[i] = in.nextLine();
+        String str = "1,3|4,14";
+        String[] strings = str.split(",");
+        System.out.println("ha");
+    }
+
+    public static int getSumOfKthToTail(LinkedList<Integer> head, int k) {
+        if (head == null || k <= 0) {
+            return 0;
         }
-        for (int i = 0; i < m; i++) {
-            str2[i] = in.nextLine();
+        Iterator<Integer> iterator = head.iterator();
+        Iterator<Integer> iterator1 = head.iterator();
+        int sum = 0;
+        int i = 1;
+        while (i < k && iterator.hasNext()) {
+            iterator.next();
+            i++;
         }
-        Map<String, Integer>[] map1 = new HashMap[n];
-        Map<String, Integer>[] map2 = new HashMap[m];
-        for (int i = 0; i < n; i++) {
-            String s = str1[i];
-            String[] arr = s.split("[ ]");
-            map1[i] = new HashMap<String, Integer>();
-            for (String str : arr) {
-                str = str.toUpperCase();
-                map1[i].put(str, 0);
-            }
+        while (iterator.hasNext()) {
+            iterator.next();
+            iterator1.next();
         }
-        for (int i = 0; i < m; i++) {
-            int[] count = new int[n];
-            String s = str2[i];
-            String[] arr = s.split("[ ]");
-            for (String str : arr) {
-                str = str.toUpperCase();
-                for (int k = 0; k < n; k++) {
-                    if (map1[k].get(str) != null) {
-                        count[k]++;
-                    }
-                }
-            }
-            int max = 0;
-            for (int x = 0; x < n; x++) {
-                if (count[x] > count[max]) {
-                    max = x;
-                }
-            }
-            System.out.println(str1[max]);
+        while (iterator1.hasNext()) {
+            sum += iterator1.next();
         }
+        return sum;
+
     }
 }

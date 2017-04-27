@@ -12,9 +12,14 @@ public class Demo5 {
     public static void main(String[] args) {
         ArrayList list1=new ArrayList();
         ArrayList<String> list2 = new ArrayList<>();
+        list2.add("dkj");
         Class c1 = list1.getClass();
         Class c2=list2.getClass();
+        Class c3 = list2.get(0).getClass();
         System.out.println(c1==c2);//输出true
+//        System.out.println(c2.getTypeName());
+        System.out.println(c3.getName());
+
 
         try {
             Method method=c2.getMethod("add", Object.class);

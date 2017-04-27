@@ -8,22 +8,37 @@ import java.util.Scanner;
 public class Main3 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int p = in.nextInt();
-        int[] a = new int[n];
-        int[] b = new int[n];
-        for (int i = 0; i < n; i++) {
-            a[i] = in.nextInt();
+
+        while (in.hasNext()) {
+
+
+            int n = in.nextInt();
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = in.nextInt();
+            }
+            int out = count(arr, n);
+            System.out.println(out);
         }
-        for (int i = 0; i < n; i++) {
-            b[i] = in.nextInt();
-        }
-        int[][] x = new int[p][2];
-        for(int i=0;i<p;i++){
-            x[i][0] = in.nextInt();
-            x[i][1] = in.nextInt();
-        }
-        System.out.println(3);
-        System.out.println(1);
+
     }
+
+    private static int count(int[] arr, int n) {
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+        }
+        int result = 0;
+        int l = 0;
+        int r = 0;
+        for (int i = 0; i < n - 1; i++) {
+            l += arr[i];
+            r = sum - l;
+            if (l == r) {
+                result++;
+            }
+        }
+        return result;
+    }
+
 }
